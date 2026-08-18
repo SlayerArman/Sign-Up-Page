@@ -14,13 +14,13 @@ body{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100dvh;
 }
 
 .container{
     background-color: black;
     border-radius: 30px;
-    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.35);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65), 0 0 30px rgba(255, 255, 255, 0.15);
     position: relative;
     overflow: hidden;
     width: 768px;
@@ -62,7 +62,8 @@ body{
 
 .container button.hidden{
     background-color: transparent;
-    border-color: black;
+    border: 1px solid #ffffff;
+    color: #ffffff;
 }
 
 .container form{
@@ -76,14 +77,24 @@ body{
 }
 
 .container input{
-    background-color: white;
-    border: none;
+    background: #181818;
+    color: white;
+    border: 1px solid #333;
     margin: 8px 0;
     padding: 10px 15px;
     font-size: 13px;
     border-radius: 8px;
     width: 100%;
     outline: none;
+}
+
+input::placeholder{
+    color: #888;
+}
+
+input:focus{
+    border-color: white;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.05);
 }
 
 .form-container{
@@ -133,7 +144,10 @@ body{
 }
 
 .social-icons a{
-    border: 1px solid rgb(40, 40, 40);
+    border: 1px solid;
+    color: white;
+    border-color: white;
+    transform: translateY(-2px);
     border-radius: 20%;
     display: inline-flex;
     justify-content: center;
@@ -141,6 +155,7 @@ body{
     margin: 0 3px;
     width: 40px;
     height: 40px;
+    transition: all 0.2s ease;
 }
 
 .toggle-container{
@@ -151,19 +166,16 @@ body{
     height: 100%;
     overflow: hidden;
     transition: all 0.6s ease-in-out;
-    border-radius: 150px 0 0 100px;
+    border-radius: 120px 0 0 80px;
 }
 
 .container.active .toggle-container{
     transform: translateX(-100%);
-    border-radius: 0 150px 100px 0;
+    border-radius: 0 120px 80px 0;
 }
 
 .toggle{
-    background-color: black;
-    height: 100%;
     background: linear-gradient(to right, rgb(40, 40, 40), rgb(20, 20, 20));
-    color: black;
     position: relative;
     left: -100%;
     height: 100%;
@@ -182,12 +194,21 @@ body{
     height: 100%;
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
     padding: 0 30px;
     text-align: center;
     top: 0;
     transform: translateX(0);
     transition: all 0.6s ease-in-out;
+}
+
+.toggle-panel h1{
+    color: #fff;
+}
+
+.toggle-panel p{
+    color: #aaa;
 }
 
 .toggle-left{
@@ -205,4 +226,44 @@ body{
 
 .container.active .toggle-right{
     transform: translateX(200%);
+}
+
+button:hover{
+    background: #333;
+    transform: translateY(-1px);
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+button:active{
+    transform: translateY(0);
+}
+
+.container form button:not(.hidden){
+    background: #ffffff;
+    color: #000000;
+}
+
+.container form button:not(.hidden):hover{
+    background: #ffffff;
+}
+
+.forgot-passord{
+    color: #999;
+    font-size: 12px;
+}
+
+.forgot-passord-hover{
+    color: #fff;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible{
+    outline: 2px solid white;
+    outline-offset: 3px;
 }
